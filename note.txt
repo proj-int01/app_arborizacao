@@ -1,5 +1,9 @@
 08:58 31/10/2021 - Teste de reposítório
 
+https://flask-sqlalchemy.palletsprojects.com/en/2.x/quickstart/
+
+https://getbootstrap.com/docs/4.0/getting-started/introduction/
+
 …or create a new repository on the command line
 echo "# app_arborizacao" >> README.md
 git init
@@ -25,3 +29,6 @@ pip install flask
 
 pip install Flask-SQLAlchemy
 
+pip install flask-wtf
+
+pip install flask-bcrypt
