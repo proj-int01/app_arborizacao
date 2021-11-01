@@ -32,3 +32,12 @@ pip install Flask-SQLAlchemy
 pip install flask-wtf
 
 pip install flask-bcrypt
+
+
+class Addtrees(Form):
+    name = StringField('Nome: '[validators.DataRequired()])
+    species = StringField('Espécie: '[validators.DataRequired()])
+    family = StringField('Família: '[validators.DataRequired()])
+    grove = StringField('Praça: '[validators.DataRequired()])
+    qtd = StringField('Quantidade: '[validators.DataRequired()])
+    origin = StringField('Origem: '[validators.DataRequired()])

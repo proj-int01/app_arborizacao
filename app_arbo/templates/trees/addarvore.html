@@ -1,0 +1,43 @@
+{% extends 'layouts.html' %}
+
+
+{% block content %}
+
+{% include '_messages.html' %}
+
+<div class="container">
+    <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <h3 class="text-center">Cadastrar Árvores</h3>
+        
+        {% from "_formhelpers.html" import render_field %}
+        <form action="" method="POST" enctype="multipart/form-data">
+
+            {{ render_field(form.name, class="form-control", placeholder="Nome Popular")}}
+            {{ render_field(form.species, class="form-control", placeholder="Espécie")}}
+            {{ render_field(form.qtd, class="form-control", placeholder="Quantidade")}}
+            {{ render_field(form.origin, class="form-control", placeholder="Origem")}}
+            {{ render_field(form.description, class="form-control", placeholder="Descrição", row="10")}}
+
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">{{ render_field(form.image_1, class="form-control")}}</div>
+                    <div class="col-md-6">{{ render_field(form.image_2, class="form-control")}}</div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success">Cadastrar</button>
+
+
+                    
+        </form>
+
+    </div>
+    <div class="col-md-2"></div>
+</div>
+</div>
+
+{% endblock content %}
+
+
