@@ -1,11 +1,9 @@
+
 {% extends 'layouts.html' %}
-
 {% block content %}
-
-
-<div class="text-center h1 text-success">Administrador</div>
-
 <div class="container">
+    {% include '_messages.html' %}
+    <div class="text-center h1 text-success">Administrador</div>
     {% from "_formhelpers.html" import render_field %}
     <form method="post" enctype="multipart/form-data">
         <div>

@@ -13,3 +13,4 @@ db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 
 from app_arbo.admin import rotas
+from app_arbo.trees import rotas
