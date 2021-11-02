@@ -24,7 +24,7 @@ def cadarvore():
         arvore = Arvore (name=getarvore,especie=getespecie)
         db.session.add(arvore)
         db.session.commit()
-        flash(f'A Praça {getarvore} foi cadastrada com sucesso', 'success')
+        flash(f'A Aravore {getarvore} foi cadastrada com sucesso', 'success')
         return redirect(url_for('cadarvore'))
     return render_template('/trees/cadarvore.html', arvore='arvore')
 
