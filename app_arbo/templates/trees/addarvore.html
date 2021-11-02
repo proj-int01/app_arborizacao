@@ -9,25 +9,46 @@
     <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-8">
-        <h3 class="text-center">Cadastrar Árvores</h3>
+        <h3 class="text-center bg-info p-2 ">Relacionar Árvores</h3>
         
         {% from "_formhelpers.html" import render_field %}
         <form action="" method="POST" enctype="multipart/form-data">
+            <labe for="praca"><strong>Selecionar a Praça</strong></label>
+                <select name="praca" id="praca" class="form-control" required>
+                    <option value="">Selecione a Praça</option>
+                    {% for praca in pracas %}
+                    <option value="praca.id">{{praca.name}}</option>
+                    {% endfor %}
+                </select>
+            
+            <labe for="arvore"><strong>Selecione uma Àrvore</strong></label>
+            <select name="arvore" id="arvore" class="form-control" required>
+                <option value="">Selecione uma árvore</option>
+                {% for arvore in arvores %}
+                <option value="arvore.id">{{arvore.name}}</option>
+                {% endfor %}
+            </select>
 
-            {{ render_field(form.name, class="form-control", placeholder="Nome Popular")}}
-            {{ render_field(form.species, class="form-control", placeholder="Espécie")}}
+            <labe for="famalia"><strong>Selecione a Família</strong> </label>
+                <select name="familia" id="familia" class="form-control" required>
+                    <option value="">Selecione uma família</option>
+                    {% for familia in familias %}
+                    <option value="familia.id">{{familia.name}}</option>
+                    {% endfor %}
+                </select>
+
+
+
+          
             {{ render_field(form.qtd, class="form-control", placeholder="Quantidade")}}
             {{ render_field(form.origin, class="form-control", placeholder="Origem")}}
             {{ render_field(form.description, class="form-control", placeholder="Descrição", row="10")}}
 
 
             <div class="container">
-                <div class="row">
-                    <div class="col-md-6">{{ render_field(form.image_1, class="form-control")}}</div>
-                    <div class="col-md-6">{{ render_field(form.image_2, class="form-control")}}</div>
-                </div>
+  
             </div>
-            <button type="submit" class="btn btn-success">Cadastrar</button>
+            <button type="submit" class="btn btn-info">Cadastrar</button>
 
 
                     
