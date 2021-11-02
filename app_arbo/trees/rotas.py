@@ -1,16 +1,16 @@
 from flask import redirect , render_template, url_for, flash, request
 
-from .forms import Addtree, Addpraca
+from .forms import Addpraca, Addtree 
 from app_arbo import db, app
-from .models import Family, Arvore, Praca 
+from .models import Familia, Praca, Addarvore, Arvore
 
 @app.route('/addfamilia', methods=['GET','POST'])
 def addfamilia():
     if request.method == "POST":
-        getfamily = request.form.get('family')
-        family = Family (name=getfamily)
-        db.session.add(family)
-        flash (f'A family {getfamily} foi cadastrada com sucesso', 'success')
+        getfamilia = request.form.get('familia')
+        familia = Familia (name=getfamilia)
+        db.session.add(familia)
+        flash (f'A familia {getfamilia} foi cadastrada com sucesso', 'success')
         db.session.commit()
         return redirect(url_for('addfamilia'))
     return render_template('/trees/cadarvore.html')
@@ -19,9 +19,9 @@ def addfamilia():
 @app.route('/cadarvore', methods=['GET', 'POST'])
 def cadarvore():    
     if request.method == "POST":
-        getarvore = request.form.get('arvore') #,'especie')
+        getarvore = request.form.get('arvore')
         getespecie= request.form.get('especie')
-        arvore = Arvore (name=getarvore,especie=getespecie)
+        arvore = Arvore(name=getarvore,especie=getespecie)
         db.session.add(arvore)
         db.session.commit()
         flash(f'A Aravore {getarvore} foi cadastrada com sucesso', 'success')
@@ -30,11 +30,24 @@ def cadarvore():
 
 
 @app.route('/addarvore', methods=['GET', 'POST'])
-def addtree():
+def addarvore():
     arvores = Arvore.query.all()
-    familias = Family.query.all()
+    familias = Familia.query.all()
     pracas = Praca.query.all()
     form = Addtree(request.form)
+    if request.method=="POST":
+        arvore = request.form.get('arvore')
+        familia = request.form.get('familia')
+        praca = request.form.get('praca')
+        qtd = form.qtd.data
+        origem = form.origem.data
+
+        addarv = Addarvore(qtd=qtd,origem=origem, arvore_id=arvore,familia_id=familia, praca_id=praca)
+        db.session.add(addarv)
+        flash(f'A Arvore foi cadastrada com sucesso', 'success')
+        db.session.commit()
+        return redirect(url_for('admin'))
+       
     return render_template('/trees/addarvore.html', title="Cadastrar Árvores", form=form, arvores=arvores, familias=familias, pracas=pracas)
 
 

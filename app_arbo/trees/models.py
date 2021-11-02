@@ -7,13 +7,13 @@ class Addarvore(db.Model):
     origem = db.Column(db.String(80), nullable=False)
     
     praca_id = db.Column(db.Integer, db.ForeignKey('praca.id'),nullable=False)
-    arvore = db.relationship('Praca', backref=db.backref('pracas', lazy=True))
+    praca = db.relationship('Praca', backref=db.backref('pracas', lazy=True))
 
     arvore_id = db.Column(db.Integer, db.ForeignKey('arvore.id'),nullable=False)
     arvore = db.relationship('Arvore', backref=db.backref('arvores', lazy=True))
 
-    family_id = db.Column(db.Integer, db.ForeignKey('family.id'),nullable=False)
-    family = db.relationship('Family', backref=db.backref('familys', lazy=True))
+    familia_id = db.Column(db.Integer, db.ForeignKey('familia.id'),nullable=False)
+    familia = db.relationship('Familia', backref=db.backref('familias', lazy=True))
 
     def __repr__(self):
         return '<Addarvore %r>' % self.name
@@ -24,7 +24,7 @@ class Arvore (db.Model):
     name=db.Column(db.String(30),nullable=False,unique=True)
     especie=db.Column(db.String(100),nullable=False,unique=True) #teste
 
-class Family(db.Model):
+class Familia(db.Model):
     id=db.Column(db.Integer,primary_key=True)
     name=db.Column(db.String(30),nullable=False,unique=True)
 

@@ -13,36 +13,33 @@
         
         {% from "_formhelpers.html" import render_field %}
         <form action="" method="POST" enctype="multipart/form-data">
-            <labe for="praca"><strong>Selecionar a Praça</strong></label>
+            <label for="praca"><strong>Selecionar a Praça</strong></label>
                 <select name="praca" id="praca" class="form-control" required>
                     <option value="">Selecione a Praça</option>
                     {% for praca in pracas %}
-                    <option value="praca.id">{{praca.name}}</option>
+                    <option value="{{praca.id}}">{{praca.name}}</option>
                     {% endfor %}
                 </select>
             
-            <labe for="arvore"><strong>Selecione uma Àrvore</strong></label>
+            <label for="arvore"><strong>Nome popular</strong></label>
             <select name="arvore" id="arvore" class="form-control" required>
                 <option value="">Selecione uma árvore</option>
-                {% for arvore in arvores %}
-                <option value="arvore.id">{{arvore.name}}</option>
-                {% endfor %}
+                    {% for arvore in arvores %}
+                <option value="{{arvore.id}}">{{arvore.name}}</option>
+                    {% endfor %}
             </select>
 
-            <labe for="famalia"><strong>Selecione a Família</strong> </label>
+            <label for="familia"><strong>Família</strong> </label>
                 <select name="familia" id="familia" class="form-control" required>
                     <option value="">Selecione uma família</option>
                     {% for familia in familias %}
-                    <option value="familia.id">{{familia.name}}</option>
+                    <option value="{{familia.id}}">{{familia.name}}</option>
                     {% endfor %}
                 </select>
-
-
-
           
             {{ render_field(form.qtd, class="form-control", placeholder="Quantidade")}}
-            {{ render_field(form.origin, class="form-control", placeholder="Origem")}}
-            {{ render_field(form.description, class="form-control", placeholder="Descrição", row="10")}}
+            {{ render_field(form.origem, class="form-control", placeholder="Origem")}}
+            
 
 
             <div class="container">
