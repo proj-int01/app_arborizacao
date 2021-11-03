@@ -1,8 +1,25 @@
 08:58 31/10/2021 - Teste de reposítório
 
-https://flask-sqlalchemy.palletsprojects.com/en/2.x/quickstart/
 
-https://getbootstrap.com/docs/4.0/getting-started/introduction/
+
+
+Consulta à documentação através da página https://flask-sqlalchemy.palletsprojects.com/en/2.x/quickstart/
+para a instação da biblioteca SQLAlchemy, através do comando pip install Flask-SQLAlchemy para a integração do framework flask com o banco de dados SQLite
+
+
+Consulta à documentação através da página https://flask-bcrypt.readthedocs.io/en/latest/ e instalação da biblioteca flask-bcrypt através do comando $pip install flask-bcrypt para que as senhas guardadas no banco de dados fosse encriptadas através de  hash para maior segurança do site.
+
+Consulta à documentação através da página  https://flask-bcrypt.readthedocs.io/en/latest/ importação da biblioteca Flask-WTF através do comando $pip install flask-wtf para elaboração dos formulários utilizados em cadastros e atualização do banco de dados.
+
+Consulta e uso das ferramentas de Bootstrap da página https://getbootstrap.com/docs/4.0/getting-started/introduction/ para o estilo da class e botton usando no projeto, além do layout principal extendido em quase todas as páginas através mecanismo de template Jinja2 https://pt.wikipedia.org/wiki/Jinja_(mecanismo_de_template), que permite uma maior integração  entre a linguagem Python e HTML na elaboração dos templates
+
+Consulta à página https://flask.palletsprojects.com/en/2.0.x/patterns/flashing/  sobre a importação do biblioteca flash com o comando $pip install flask, para o desenvolvimento das mensagens emitidas durante a manipulação do banco de dados.
+
+O desenvolvimento iniciou pelas criação do sistema de pastas em 2 níveis para que possamos ter controle de acesso a página de administração do site.
+A criação das rotas e dos templates segue conforme o avanço do desenvolvimento que iniciou pelo controle de acesso atraves da página admim que possui uma aplicação separada com rotas models e templates.
+Na sequencia a criação da pasta \trees\ onde está a aplicação principal com __init__, forms, models e rotas, que na aplicação optamos e deixar em um arquivo separado para melhor manipulação e controle durante o desenvolvimento.
+O Script models.py é encarregado, tanto da parte de administração quanto na parte principal da aplicação pela criação do banco de dados e as tabelas que são acessada pelas query durante a execução da aplicação.
+Concluindo a parte de admistração se iniciou a elaboração das views da página principal. 
 
 …or create a new repository on the command line
 echo "# app_arborizacao" >> README.md
@@ -25,13 +42,13 @@ python -m venv venv
 
 .\venv\Scripts\Activate.ps1
 
-pip install flask
+$pip install flask
 
-pip install Flask-SQLAlchemy
+$pip install Flask-SQLAlchemy
 
-pip install flask-wtf
+$pip install flask-wtf
 
-pip install flask-bcrypt
+$pip install flask-bcrypt
 
 
 class Addtrees(Form):
@@ -68,3 +85,19 @@ CARROCEL
         <span class="sr-only">Next</span>
       </a>
     </div>
+
+
+
+
+
+ROTEIRO
+
+Abertura da conta https://github.com/proj-int01/ para fazer o versionamento da aplicação
+
+pesquiza retirada
+
+
+<form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>

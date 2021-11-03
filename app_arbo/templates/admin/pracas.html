@@ -12,17 +12,18 @@
       
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="/admin"><strong>Home</strong><span class="sr-only">(current)</span></a>
+            <li class="nav-item ">
+              <a class="nav-link" href="/admin">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/pracas">Praças</a>
+            <li class="nav-item active">
+              <a class="nav-link" href="/pracas"><strong>Praças</strong></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/arvores">Árvores</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/familias">Famílias</a>
+            </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Dropdown
@@ -46,32 +47,26 @@
     <table class="table table-sm table-striped">
         <thead>
             <th>Id</th>
-            <th>Praça</th>
-            <th>Nome popular</th>
-            <th>Espécie</th>
-            <th>família</th>
-            <th>Quantidade</th>
-            <th>Origem</th>
+            <th>Nome</th>
+            <th>Endereço</th>
             <th></th>
             <th>Editar</th>
             <th>Deletar</th>
         </thead>
 
         <tbody>
-            {% for arvore in arvores %}
+            {% if pracas %} 
+            {% for praca in pracas %}
             <tr>
                 <td>{{loop.index}}</td>
-                <td>{{arvore.praca.name}}</td>
-                <td>{{arvore.arvore.name}}</td>
-                <td>{{arvore.arvore.especie}}</td>
-                <td>{{arvore.familia.name}}</td>
-                <td>{{arvore.qtd}}</td>
-                <td>{{arvore.origem}}</td>
+                <td>{{praca.name}}</td>
+                <td>{{praca.end}}</td>
                 <td></td>
                 <td><a href="" class="btn btn-sm btn-outline-warning">Editar</a></td>
                 <td><a href="" class="btn btn-sm btn-outline-danger">Deletar</a></td>
             </tr>
             {% endfor %}
+            {% endif %}
         </tbody>
 
 
