@@ -62,7 +62,7 @@
                 <td>{{praca.name}}</td>
                 <td>{{praca.end}}</td>
                 <td></td>
-                <td><a href="" class="btn btn-sm btn-outline-warning">Editar</a></td>
+                <td><a href="{{url_for('updatepraca', id=praca.id)}}" class="btn btn-sm btn-outline-warning">Editar</a></td>
                 <td><a href="" class="btn btn-sm btn-outline-danger">Deletar</a></td>
             </tr>
             {% endfor %}

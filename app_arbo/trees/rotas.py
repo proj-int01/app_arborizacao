@@ -52,6 +52,26 @@ def cadarvore():
     return render_template('/trees/cadarvore.html', arvore='arvore')
 
 
+
+@app.route('/updatearvore/<int:id>', methods=['GET', 'POST'])
+def updatearvore(id):
+    if 'email' not in session:
+        flash(f'Favor faça seu login no sistema.', 'success')
+        return redirect(url_for('login'))
+    updatearvore = Arvore.query.get_or_404(id)
+    arvore = request.form.get('arvore')
+    especie = request.form.get('especie')
+    if request.method =='POST':
+        updatearvore.name = arvore
+        updatearvore.especie = especie
+        flash (f'A Árvore foi atualizada com sucesso', 'success')
+        db.session.commit()
+        return redirect(url_for('arvores'))
+    return render_template('/trees/updatearvore.html', updatearvore=updatearvore)
+
+
+
+
 @app.route('/addarvore', methods=['GET', 'POST'])
 def addarvore():
     if 'email' not in session:
@@ -92,7 +112,30 @@ def addpraca():
         return redirect(url_for('addpraca'))
     return render_template('/trees/addpraca.html')
     
+
+@app.route('/updatepraca/<int:id>', methods=['GET', 'POST'])
+def updatepraca(id):
+    if 'email' not in session:
+        flash(f'Favor faça seu login no sistema.', 'success')
+        return redirect(url_for('login'))
+    updatepraca = Praca.query.get_or_404(id)
+    praca = request.form.get('praca')
+    end = request.form.get('end')
+    if request.method =='POST':
+        updatepraca.name = praca
+        updatepraca.end = end
+        flash (f'A Praca foi atualizada com sucesso', 'success')
+        db.session.commit()
+        return redirect(url_for('pracas'))
+    return render_template('/trees/updatepraca.html', updatepraca=updatepraca)
+
+
+
+
+
+
+
+
     
     
-    #form = Addpraca(request.form)
-    #return render_template('/trees/addpraca.html', title="Cadastrar Praças/Fotos", form=form)
+    

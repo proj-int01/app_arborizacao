@@ -62,7 +62,7 @@
                 <td>{{arvore.name}}</td>
                 <td>{{arvore.especie}}</td>
                 <td></td>
-                <td><a href="" class="btn btn-sm btn-outline-warning">Editar</a></td>
+                <td><a href="{{url_for('updatearvore', id=arvore.id)}}" class="btn btn-sm btn-outline-warning">Editar</a></td>
                 <td><a href="" class="btn btn-sm btn-outline-danger">Deletar</a></td>
             </tr>
             {% endfor %}
