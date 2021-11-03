@@ -94,7 +94,7 @@ ROTEIRO
 
 Abertura da conta https://github.com/proj-int01/ para fazer o versionamento da aplicação
 
-pesquiza retirada
+pesquiza retirada********************************************************
 
 
 <form class="form-inline my-2 my-lg-0">

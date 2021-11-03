@@ -60,7 +60,7 @@
                 <td>{{loop.index}}</td>
                 <td>{{familia.name}}</td>
                 <td></td>
-                <td><a href="" class="btn btn-sm btn-outline-warning">Editar</a></td>
+                <td><a href="{{url_for('updatefamilia', id=familia.id)}}" class="btn btn-sm btn-outline-warning">Editar</a></td>
                 <td><a href="" class="btn btn-sm btn-outline-danger">Deletar</a></td>
             </tr>
             {% endfor %}

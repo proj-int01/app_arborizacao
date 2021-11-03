@@ -6,6 +6,10 @@ from .models import Familia, Praca, Addarvore, Arvore
 
 @app.route('/addfamilia', methods=['GET','POST'])
 def addfamilia():
+    if 'email' not in session:
+        flash(f'Favor faça seu login no sistema.', 'success')
+        return redirect(url_for('login'))
+
     if request.method == "POST":
         getfamilia = request.form.get('familia')
         familia = Familia (name=getfamilia)
@@ -15,12 +19,28 @@ def addfamilia():
         return redirect(url_for('addfamilia'))
     return render_template('/trees/cadarvore.html')
 
+@app.route('/updatefamilia/<int:id>', methods=['GET','POST'])
+def updatefamilia(id):
+    if 'email' not in session:
+        flash(f'Favor faça seu login no sistema.', 'success')
+        return redirect(url_for('login'))
+    updatefamilia = Familia.query.get_or_404(id)
+    familia = request.form.get('familia')
+    if request.method =='POST':
+        updatefamilia.name = familia
+        flash (f'A família foi atualizada com sucesso', 'success')
+        db.session.commit()
+        return redirect(url_for('familias'))
+    return render_template('/trees/updatefamilia.html', title="Atualizar Família", updatefamilia=updatefamilia)
+
+
 
 @app.route('/cadarvore', methods=['GET', 'POST'])
 def cadarvore():
     if 'email' not in session:
         flash(f'Favor faça seu login no sistema.', 'success')
-        return redirect(url_for('login'))    
+        return redirect(url_for('login'))  
+
     if request.method == "POST":
         getarvore = request.form.get('arvore')
         getespecie= request.form.get('especie')
