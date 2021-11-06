@@ -200,7 +200,6 @@ def deletarfamilia(id):
         db.session.delete(familia)
         db.session.commit()
         flash (f'A família {familia.name} foi deletada com sucesso', 'success')
-        db.session.commit()
         return redirect(url_for('familias'))
     flash (f'A família {familia.name} naõ moi deletada com sucesso', 'success')
     return redirect(url_for('familias'))
@@ -214,7 +213,6 @@ def deletarpraca(id):
         db.session.delete(praca)
         db.session.commit()
         flash (f'A Praça {praca.name} foi deletada com sucesso', 'success')
-        db.session.commit()
         return redirect(url_for('pracas'))
     flash (f'A Praça {praca.name} não foi deletada com sucesso', 'success')
     return redirect(url_for('pracas'))
@@ -222,12 +220,24 @@ def deletarpraca(id):
       
 @app.route('/deletararvore/<int:id>', methods=['GET','POST'])
 def deletararvore(id):
-    arvore = Praca.query.get_or_404(id)
+    arvore = Arvore.query.get_or_404(id)
     if request.method =='POST':
         db.session.delete(arvore)
         db.session.commit()
         flash (f'A Praça {arvore.name} foi deletada com sucesso', 'success')
-        db.session.commit()
-        return redirect(url_for('pracas'))
+        return redirect(url_for('arvores'))
     flash (f'A Praça {arvore.name} não foi deletada com sucesso', 'success')
-    return redirect(url_for('pracas'))
+    return redirect(url_for('arvores'))
+
+
+         
+@app.route('/deletarrelacao/<int:id>', methods=['GET','POST'])
+def deletarrelacao(id):
+    arvore = Addarvore.query.get_or_404(id)
+    if request.method =='POST':
+        db.session.delete(arvore)
+        db.session.commit()
+        flash (f'A árvore foi deletada com sucesso', 'success')
+        return redirect(url_for('admin'))
+    flash (f'A árvore não foi deletada com sucesso', 'success')
+    return redirect(url_for('admin'))
