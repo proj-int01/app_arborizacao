@@ -184,7 +184,7 @@ def cadarvore():
         db.session.add(arvore)
         db.session.commit()
         flash(f'A Árvore {getarvore} foi cadastrada com sucesso', 'success')
-        return redirect(url_for('arvore'))
+        return redirect(url_for('arvores'))
     return render_template('/trees/cadarvore.html', title='Cadastrar Árvores', arvore='arvore')
 
 
