@@ -9,47 +9,50 @@
     <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-8">
-        <h3 class="text-center" style="background-color: #e3f2fd;">Relacionar Árvores</h3>
+        <h3 class="text-center" style="background-color: #e3f2fd;">Atualizar Relacionamento Árvores/Praças/Famílias</h3>
         
         {% from "_formhelpers.html" import render_field %}
         <form action="" method="POST" enctype="multipart/form-data">
-            <label for="praca"><strong>Selecionar a Praça</strong></label>
+            <label for="praca"><strong>Atualizar a Praça</strong></label>
                 <select name="praca" id="praca" class="form-control" required>
-                    <option value="">Selecione a Praça</option>
+                    <option value="{{add_arvore.praca_id}}">{{add_arvore.praca.name}}
                     {% for praca in pracas %}
+                   </option>
+                    
                     <option value="{{praca.id}}">{{praca.name}}</option>
                     {% endfor %}
                 </select>
             
-            <label for="arvore"><strong>Nome popular</strong></label>
+            <label for="arvore"><strong>Atualizar Nome popular</strong></label>
             <select name="arvore" id="arvore" class="form-control" required>
-                <option value="">Selecione uma árvore</option>
+                <option value="{{add_arvore.arvore_id}}">{{add_arvore.arvore.name}}
                     {% for arvore in arvores %}
                 <option value="{{arvore.id}}">{{arvore.name}}</option>
                     {% endfor %}
             </select>
 
-            <label for="familia"><strong>Família</strong> </label>
+            <label for="familia"><strong>Atualizar Família</strong> </label>
                 <select name="familia" id="familia" class="form-control" required>
-                    <option value="">Selecione uma família</option>
+                    <option value="{{add_arvore.familia_id}}">{{add_arvore.familia.name}}
                     {% for familia in familias %}
                     <option value="{{familia.id}}">{{familia.name}}</option>
                     {% endfor %}
                 </select>
           
-            {{ render_field(form.qtd, class="form-control", placeholder="Quantidade")}}
-            {{ render_field(form.origem, class="form-control", placeholder="Origem")}}
+            {{ render_field(form.qtd, class="form-control", placeholder="Atualizar Quantidade")}}
+            {{ render_field(form.origem, class="form-control", placeholder="Atualizar Origem")}}
             
 
 
             <div class="container">
   
             </div>
-            <button type="submit" class="btn btn-info">Cadastrar</button>
+            <button type="submit" class="btn btn-info">Atualizar</button>
 
 
                     
         </form>
+        <a href="{{url_for('admin')}}" class="btn btn-danger" style="margin-top: -67px; margin-left: 180px;">Cancelar</a>
 
     </div>
     <div class="col-md-2"></div>

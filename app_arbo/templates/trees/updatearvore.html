@@ -16,13 +16,15 @@
                 <input type="text" name="especie" class="form-control" value="{{updatearvore.especie}}">
                 <input type="submit" value="Atualizar" class="btn btn-success mt-2">
             </form>
+            <a href="{{url_for('arvores')}}" class="btn btn-danger" style="margin-top: -67px; margin-left: 180px;">Cancelar</a>
             {% else %}
             <h2 class="text-center mt-5">Atualizar Família</h2>
             <form action="" method="POST">
                 <input type="text" name="familia" class="form-control" value="{{updatefamilia.name}}">
                 <input type="submit" value="Update Família " class="btn btn-success mt-2">
-
             </form>
+            <a href="{{url_for('familias')}}" class="btn btn-danger" style="margin-top: -67px; margin-left: 180px;">Cancelar</a>
+            
             {% endif %}
         </div>
         
