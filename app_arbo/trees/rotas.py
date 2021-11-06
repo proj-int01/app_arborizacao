@@ -16,7 +16,7 @@ def addfamilia():
         db.session.add(familia)
         flash (f'A família {getfamilia} foi cadastrada com sucesso', 'success')
         db.session.commit()
-        return redirect(url_for('addfamilia'))
+        return redirect(url_for('familias'))
     return render_template('/trees/cadarvore.html', title='Adicionar Famílias')
 
 @app.route('/updatefamilia/<int:id>', methods=['GET','POST'])
@@ -143,7 +143,7 @@ def addpraca():
         db.session.add(praca)
         db.session.commit()
         flash(f'A Praça {getpraca} foi cadastrada com sucesso', 'success')
-        return redirect(url_for('addpraca'))
+        return redirect(url_for('pracas'))
     return render_template('/trees/addpraca.html', title='Cadastrar Praças')
     
 
@@ -184,11 +184,50 @@ def cadarvore():
         db.session.add(arvore)
         db.session.commit()
         flash(f'A Árvore {getarvore} foi cadastrada com sucesso', 'success')
-        return redirect(url_for('cadarvore'))
+        return redirect(url_for('arvore'))
     return render_template('/trees/cadarvore.html', title='Cadastrar Árvores', arvore='arvore')
 
 
 
+@app.route('/deletarfamilia/<int:id>', methods=['GET','POST'])
+def deletarfamilia(id):
+    if 'email' not in session:
+        flash(f'Favor faça seu login no sistema.', 'success')
+        return redirect(url_for('login'))
+
+    familia = Familia.query.get_or_404(id)
+    if request.method =='POST':
+        db.session.delete(familia)
+        db.session.commit()
+        flash (f'A família {familia.name} foi deletada com sucesso', 'success')
+        db.session.commit()
+        return redirect(url_for('familias'))
+    flash (f'A família {familia.name} naõ moi deletada com sucesso', 'success')
+    return redirect(url_for('familias'))
     
+   
     
+@app.route('/deletarpraca/<int:id>', methods=['GET','POST'])
+def deletarpraca(id):
+    praca = Praca.query.get_or_404(id)
+    if request.method =='POST':
+        db.session.delete(praca)
+        db.session.commit()
+        flash (f'A Praça {praca.name} foi deletada com sucesso', 'success')
+        db.session.commit()
+        return redirect(url_for('pracas'))
+    flash (f'A Praça {praca.name} não foi deletada com sucesso', 'success')
+    return redirect(url_for('pracas'))
     
+      
+@app.route('/deletararvore/<int:id>', methods=['GET','POST'])
+def deletararvore(id):
+    arvore = Praca.query.get_or_404(id)
+    if request.method =='POST':
+        db.session.delete(arvore)
+        db.session.commit()
+        flash (f'A Praça {arvore.name} foi deletada com sucesso', 'success')
+        db.session.commit()
+        return redirect(url_for('pracas'))
+    flash (f'A Praça {arvore.name} não foi deletada com sucesso', 'success')
+    return redirect(url_for('pracas'))

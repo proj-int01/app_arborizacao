@@ -16,6 +16,7 @@
                 <input type="text" name="especie" class="form-control">
                 <input type="submit" value="Cadastrar Arvore" class="btn btn-success mt-2">
             </form>
+            <a href="{{url_for('admin')}}" class="btn btn-secondary" style="margin-top: -67px; margin-left: 180px;">Cancelar</a>
             {% else %}
             <h2 class="text-center mt-5">Cadastrar Família</h2>
             <form action="" method="POST">
@@ -23,7 +24,12 @@
                 <input type="submit" value="Cadastrar Família" class="btn btn-success mt-2">
 
             </form>
+            <a href="{{url_for('admin')}}" class="btn btn-secondary" style="margin-top: -67px; margin-left: 180px;">Cancelar</a>
             {% endif %}
+        </div>
+        <div>
+
+       
         </div>
         
         <div class="col-md-3"></div>

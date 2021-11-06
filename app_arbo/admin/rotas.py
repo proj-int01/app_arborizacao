@@ -46,6 +46,9 @@ def familias():
 
 @app.route('/registrar', methods=['GET', 'POST'])
 def registrar():
+    if 'email' not in session:
+        flash(f'Favor faça seu login no sistema.', 'success')
+        return redirect(url_for('login'))
     form = RegistrationForm(request.form)
     if request.method == 'POST' and form.validate():
         hash_password = bcrypt.generate_password_hash(form.password.data)

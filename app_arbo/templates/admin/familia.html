@@ -26,13 +26,14 @@
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown
+                Adicionar
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
+                <a class="dropdown-item" href="{{url_for('addpraca')}}">Add Praça</a>
+                <a class="dropdown-item" href="{{url_for('cadarvore')}}">Add Árvore</a>
+                <a class="dropdown-item" href="{{url_for('addfamilia')}}">Add Família</a>
+                                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{{url_for('registrar')}}">Novo Administrador</a>
               </div>
             </li>
             <li class="nav-item">
@@ -60,9 +61,36 @@
                 <td>{{loop.index}}</td>
                 <td>{{familia.name}}</td>
                 <td></td>
-                <td><a href="{{url_for('updatefamilia', id=familia.id)}}" class="btn btn-sm btn-outline-warning">Editar</a></td>
-                <td><a href="" class="btn btn-sm btn-outline-danger">Deletar</a></td>
+                <td><a href="{{url_for('updatefamilia', id=familia.id)}}" class="btn btn-sm btn-warning">Editar</a></td>
+
+                <td>
+                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal-{{familia.id}}">
+                  Deletar
+                </button>
+                </td>
             </tr>
+<div class="modal fade" id="exampleModal-{{familia.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{familia.name}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <span class="text-danger">Deseja realmente deletar a  <strong>Família {{familia.name}}</strong> </span>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <form action="{{url_for('deletarfamilia', id=familia.id)}}" method="POST">
+        <button type="submit" class="btn btn-danger">Deletar</button>
+        </form>  
+      </div>
+    </div>
+  </div>
+</div>
+            
             {% endfor %}
             {% endif %}
         </tbody>
