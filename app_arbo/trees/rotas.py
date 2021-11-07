@@ -148,11 +148,13 @@ def addpraca():
     if request.method == "POST":
         getpraca = request.form.get('praca')
         getend = request.form.get('end')
+        getlocal = request.form.get('local')
+        getdesc = request.form.get('desc')
         getimage_1 = request.form.get('image_1')
         getimage_2 = request.form.get('image_2')
         getimage_3 = request.form.get('image_3')
-        getimage_4 = request.form.get('image_4')
-        praca = Praca(name=getpraca,end=getend,image_1=getimage_1,image_2=getimage_2,image_3=getimage_3,image_4=getimage_4)
+        
+        praca = Praca(name=getpraca,end=getend,image_1=getimage_1,image_2=getimage_2,image_3=getimage_3,local=getlocal,desc=getdesc)
         db.session.add(praca)
         db.session.commit()
         flash(f'A Praça {getpraca} foi cadastrada com sucesso', 'success')
@@ -168,17 +170,20 @@ def updatepraca(id):
     updatepraca = Praca.query.get_or_404(id)
     praca = request.form.get('praca')
     end = request.form.get('end')
+    local = request.form.get('local')
+    desc = request.form.get('desc')
     image_1 = request.form.get('image_1')
     image_2 = request.form.get('image_2')
     image_3 = request.form.get('image_3')
-    image_4 = request.form.get('image_4')
+    
     if request.method =='POST':
         updatepraca.name = praca
         updatepraca.end = end
+        updatepraca.local = local
+        updatepraca.desc = desc
         updatepraca.image_1 = image_1
         updatepraca.image_2 = image_2
         updatepraca.image_3 = image_3
-        updatepraca.image_4 = image_4
         flash (f'A Praca foi atualizada com sucesso', 'success')
         db.session.commit()
         return redirect(url_for('pracas'))

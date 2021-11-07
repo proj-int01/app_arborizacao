@@ -32,10 +32,11 @@ class Praca(db.Model):
     id=db.Column(db.Integer,primary_key=True)
     name=db.Column(db.String(30),nullable=False,unique=True)
     end=db.Column(db.String(100),nullable=False,unique=False)
+    local=db.Column(db.String(300),nullable=False,unique=False)
+    desc=db.Column(db.String(500),nullable=False,unique=False)
     image_1=db.Column(db.String(30),nullable=False,unique=True)
     image_2=db.Column(db.String(30),nullable=False,unique=True)
-    image_3=db.Column(db.String(500),nullable=False,unique=True)
-    image_4=db.Column(db.String(500),nullable=False,unique=True) 
+    image_3=db.Column(db.String(30),nullable=False,unique=True) 
     
 
 
