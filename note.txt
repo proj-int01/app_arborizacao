@@ -134,16 +134,10 @@ pesquiza retirada********************************************************
                   </a>-->
                 </div>
 
+		
+      
 
 
-
-
-        db.session.add(addarv)
-        flash(f'A Árvore foi cadastrada com sucesso', 'success')
-        db.session.commit()
-        return redirect(url_for('admin'))
-       
-    return render_template('/trees/updateaddarvore.html', title="Cadastrar Árvores", form=form, arvores=arvores, familias=familias, pracas=pracas, add_arvore=add_arvore)
 
 
 
