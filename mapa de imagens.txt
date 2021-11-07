@@ -2,9 +2,11 @@ Praça São Cristóvão
 Rua Gustavo de Godoy
 scristovao1.jpg
 
+
 Praça Dr. Raul da Rocha Medeiros/Praça da Bandeira
 Rua Nhonhô do Livramento
 central1.jpg
+	
 
 Praça ao lado da UBS Silvio Govoni
 Avenida José Luis Franco da Rocha
@@ -64,7 +66,7 @@ esperanca1.jpg
 esperanca2.jpg
 esperanca3.jpg
 
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1859.0325441141763!2d-48.48610222844937!3d-21.26889099750193!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjHCsDE2JzA4LjAiUyA0OMKwMjknMDYuNyJX!5e0!3m2!1spt-BR!2sbr!4v1636260756204!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+<iframe src="https://www.google.com/maps/embed?pb=' + arvore.praca.id '+" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 
 
 

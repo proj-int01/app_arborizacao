@@ -6,10 +6,29 @@ from .models import Familia, Praca, Addarvore, Arvore
 
 
 
+
 @app.route('/')
 def home():
     pracas = Praca.query.all()
     return render_template('/trees/index.html', title='Página Inicial', pracas=pracas)
+
+
+
+
+@app.route('/praca/<int:id>')
+def get_praca(id):
+    pracas = Praca.query.all()
+    get_npraca = Praca.query.filter_by(id=id)
+    get_image = Praca.query.filter_by(id=id)
+    get_praca = Addarvore.query.filter_by(praca_id=id)
+    
+    return render_template('/trees/praca.html', pracas=pracas, get_praca=get_praca, get_npraca=get_npraca, get_image=get_image)
+
+
+
+
+
+
 
 
 
@@ -148,13 +167,12 @@ def addpraca():
     if request.method == "POST":
         getpraca = request.form.get('praca')
         getend = request.form.get('end')
-        getlocal = request.form.get('local')
         getdesc = request.form.get('desc')
         getimage_1 = request.form.get('image_1')
         getimage_2 = request.form.get('image_2')
         getimage_3 = request.form.get('image_3')
         
-        praca = Praca(name=getpraca,end=getend,image_1=getimage_1,image_2=getimage_2,image_3=getimage_3,local=getlocal,desc=getdesc)
+        praca = Praca(name=getpraca,end=getend,image_1=getimage_1,image_2=getimage_2,image_3=getimage_3,desc=getdesc)
         db.session.add(praca)
         db.session.commit()
         flash(f'A Praça {getpraca} foi cadastrada com sucesso', 'success')
@@ -170,7 +188,6 @@ def updatepraca(id):
     updatepraca = Praca.query.get_or_404(id)
     praca = request.form.get('praca')
     end = request.form.get('end')
-    local = request.form.get('local')
     desc = request.form.get('desc')
     image_1 = request.form.get('image_1')
     image_2 = request.form.get('image_2')
@@ -179,7 +196,6 @@ def updatepraca(id):
     if request.method =='POST':
         updatepraca.name = praca
         updatepraca.end = end
-        updatepraca.local = local
         updatepraca.desc = desc
         updatepraca.image_1 = image_1
         updatepraca.image_2 = image_2
