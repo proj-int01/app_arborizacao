@@ -138,32 +138,6 @@ pesquiza retirada********************************************************
 
 
 
-
-
-@app.route('/updateaddarvore/<int:id>', methods=['GET', 'POST'])
-def updateaddarvore(id):
-    if 'email' not in session:
-        flash(f'Favor faça seu login no sistema.', 'success')
-        return redirect(url_for('login'))
-    arvores = Arvore.query.all()
-    familias = Familia.query.all()
-    pracas = Praca.query.all()
-    add_arvore = Addarvore.query.get_or_404(id)
-    form = Addtree(request.form)
-    form.qtd.data = add_arvore.qtd
-    form.origem.data = add_arvore.origem
-    arvore = request.form.get('arvore')
-    familia = request.form.get('familia')
-    praca = request.form.get('praca')
-
-    if request.method=="POST":
-        arvore = request.form.get('arvore')
-        familia = request.form.get('familia')
-        pracas = request.form.get('praca')
-        qtd = form.qtd.data
-        origem = form.origem.data
-
-        addarv = Addarvore(qtd=qtd,origem=origem, arvore_id=arvore,familia_id=familia, praca_id=pracas)
         db.session.add(addarv)
         flash(f'A Árvore foi cadastrada com sucesso', 'success')
         db.session.commit()

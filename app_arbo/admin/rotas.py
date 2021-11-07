@@ -7,6 +7,8 @@ from .forms import RegistrationForm, LoginFormulario
 import os
 
 
+
+
 @app.route('/admin')
 def admin():
     if 'email' not in session:
