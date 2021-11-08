@@ -38,7 +38,7 @@
         </li>
        
         </ul>
-        <form class="form-inline my-2 my-lg-0" method="POST">
+        <form class="form-inline my-2 my-lg-0" method="post">
           <input class="form-control mr-sm-2" type="search" placeholder="Nome popular" autofocus="autofocus" name="search_string">
           <input class="btn btn-outline-success my-2 my-sm-0" type="submit" formaction="/search" value="Pesquisar">
         </form>
@@ -115,20 +115,20 @@
               <table class="table table-sm table-striped">
                 <thead>
                     <th>Nome popular</th>
+                    <th>Praça</th>
                     <th>Espécie</th>
-                    <th>família</th>
                     <th>Qtd.</th>
                     <th>Origem</th>
                     <th></th>
                  </thead>
         
                 <tbody>
-                    {% for arvore in get_praca %}
+                    {% for arvore in arvores %}
                     
                     <tr>
-                        <td>{{arvore.arvore.name}}</td>
-                        <td>{{arvore.arvore.especie}}</td>
-                        <td>{{arvore.familia.name}}</td>
+                        <td>{{arvore.name}}</td>
+                        <td>{{arvore.praca}}</td>
+                        <td>{{arvore.especie}}</td>
                         <td>{{arvore.qtd}}</td>
                         <td>{{arvore.origem}}</td>
                         <td></td>                      

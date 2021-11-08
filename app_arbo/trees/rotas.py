@@ -13,6 +13,26 @@ def home():
     return render_template('/trees/index.html', title='Página Inicial', pracas=pracas)
 
 
+@app.route('/search',methods=['GET','POST'])
+def search():
+     
+    if request.method == "POST":
+        pracas = Praca.query.all()
+        form = request.form
+        search_value = form['search_string']
+        search = '%{0}%'.format(search_value)
+        arvores = Addarvore.query.join(Arvore, Praca ).add_columns(Arvore.id, Arvore.name, Arvore.especie, Praca.id, Praca.name.label('praca'), Addarvore.origem, Addarvore.qtd).filter(Arvore.name.like(search)).all()
+
+       
+
+
+
+
+        return render_template('pesquisar.html', arvores=arvores, pracas=pracas,)
+    else:
+        return redirect('/')
+
+
 
 
 @app.route('/praca/<int:id>')
