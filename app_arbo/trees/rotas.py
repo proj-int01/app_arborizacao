@@ -10,7 +10,7 @@ from .models import Familia, Praca, Addarvore, Arvore
 @app.route('/')
 def home():
     pracas = Praca.query.all()
-    return render_template('/trees/index.html', title='Página Inicial', pracas=pracas)
+    return render_template('/trees/index.html', title='Praças de Monte Alto - SP', pracas=pracas)
 
 
 @app.route('/search',methods=['GET','POST'])
@@ -28,7 +28,7 @@ def search():
 
 
 
-        return render_template('pesquisar.html', arvores=arvores, pracas=pracas,)
+        return render_template('pesquisar.html', arvores=arvores, pracas=pracas, title='Resultado da pesquisa')
     else:
         return redirect('/')
 
@@ -42,7 +42,7 @@ def get_praca(id):
     get_image = Praca.query.filter_by(id=id)
     get_praca = Addarvore.query.filter_by(praca_id=id)
     
-    return render_template('/trees/praca.html', pracas=pracas, get_praca=get_praca, get_npraca=get_npraca, get_image=get_image)
+    return render_template('/trees/praca.html', pracas=pracas, get_praca=get_praca, get_npraca=get_npraca, get_image=get_image, title='Praças de Monte Alto - SP')
 
 
 
