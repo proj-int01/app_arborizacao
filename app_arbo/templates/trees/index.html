@@ -2,6 +2,13 @@
 
 {% block content %}
 <style>
+  .imb 
+  {
+  
+        
+        justify-content: right;
+        align-items: right;
+    }
 
     h4 {
         color: #0a630a;
@@ -16,16 +23,17 @@
 </style>
 <div class="container">
     <div class="col-sm">
+      
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/">home</a>
+    
+    <a class="navbar-brand" href="/"><img class="navbar-brand" src="{{url_for('static', filename='images/brasao.png')}}"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
     </button>
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        
-        
+               
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Selecione a praça
@@ -43,6 +51,10 @@
         <input class="form-control mr-sm-2" type="search" placeholder="Nome popular" autofocus="autofocus" name="search_string">
         <input class="btn btn-outline-success my-2 my-sm-0" type="submit" formaction="/search" value="Pesquisar">
       </form>
+      <div>
+
+    
+      
       <a href="{{url_for('admin')}}" class="btn btn-light" style="margin-top: 0px; margin-left: 180px;">Administrador</a>
       
       
@@ -129,9 +141,19 @@
 </div>
     <div class="col-md-7">
       <p></p>
-      <h4 style="text-align: center;">Conheça a diversidade arbórea</h4>
+      
+        <td><h4 style="text-align: center;">Conheça a diversidade arbórea<br></h4></td>
+        <td><h4 style="text-align: center;"><br></h4></td>
+        <th></th>
+        <td><h4 style="text-align: center;">das praças de Monte alto</h4></td>
+        <div class="imb">
+        <td></td>
+      </div>
+      <th></th>
+      <td></td>
+      
       <p></p> 
-        <h4 style="text-align: center;">das praças de Monte alto</h4>
+        
         <p>
 
         </p>
