@@ -23,8 +23,6 @@
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        
-        
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Selecione a praça
@@ -36,8 +34,19 @@
             
           </div>
         </li>
-       
         </ul>
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <strong>Veja imagens das espécies</strong>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              
+              <a class="dropdown-item" href="https://www.google.com/search?q=Anacardium+occidentale+L.&tbm=isch&ved=2ahUKEwjzoL6Wkov0AhWfObkGHaxbChgQ2-cCegQIABAA&oq=Anacardium+occidentale+L.&gs_lcp=CgNpbWcQAzIECAAQHjoHCCMQ7wMQJzoFCAAQgAQ6BggAEAcQHjoECAAQGFDUBVjUBWDNEWgAcAB4AIABbIgB1gGSAQMwLjKYAQCgAQGqAQtnd3Mtd2l6LWltZ8ABAQ&sclient=img&ei=ylaKYfOTD5_z5OUPrLepwAE&bih=623&biw=1366" target="_blank">Anacardium occidentale L.</a>
+              
+            </div>
+          </li>
+          </ul>
         <form class="form-inline my-2 my-lg-0" method="POST">
           <input class="form-control mr-sm-2" type="search" placeholder="Nome popular" autofocus="autofocus" name="search_string">
           <input class="btn btn-outline-success my-2 my-sm-0" type="submit" formaction="/search" value="Pesquisar">
@@ -127,7 +136,7 @@
                     
                     <tr>
                         <td>{{arvore.arvore.name}}</td>
-                        <td>{{arvore.arvore.especie}}</td>
+                        <td><em>{{arvore.arvore.especie}}</em></a></td>
                         <td>{{arvore.familia.name}}</td>
                         <td>{{arvore.qtd}}</td>
                         <td>{{arvore.origem}}</td>
