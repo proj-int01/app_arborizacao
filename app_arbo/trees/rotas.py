@@ -91,11 +91,10 @@ def updatearvore(id):
     updatearvore = Arvore.query.get_or_404(id)
     arvore = request.form.get('arvore')
     especie = request.form.get('especie')
-    link = request.form.get('link')
+    
     if request.method =='POST':
         updatearvore.name = arvore
         updatearvore.especie = especie
-        updatearvore.link = link
         flash (f'A Árvore foi atualizada com sucesso', 'success')
         db.session.commit()
         return redirect(url_for('arvores'))
@@ -109,8 +108,8 @@ def addarvore():
     if 'email' not in session:
         flash(f'Favor faça seu login no sistema.', 'success')
         return redirect(url_for('login'))
-    arvores = Arvore.query.all()
-    familias = Familia.query.all()
+    arvores = Arvore.query.order_by(Arvore.name).all()
+    familias = Familia.query.order_by(Familia.name).all()
     pracas = Praca.query.all()
     form = Addtree(request.form)
     if request.method=="POST":
@@ -138,7 +137,7 @@ def updateaddarvore(id):
         return redirect(url_for('login'))
     
     form = Addtree(request.form)
-    arvores = Arvore.query.all()
+    arvores = Arvore.query.order_by(Arvore.name).all()
     familias = Familia.query.all()
     pracas = Praca.query.all()
     add_arvore = Addarvore.query.get_or_404(id)
@@ -244,8 +243,7 @@ def cadarvore():
     if request.method == "POST":
         getarvore = request.form.get('arvore')
         getespecie= request.form.get('especie')
-        getlink = request.form.get('link')
-        arvore = Arvore(name=getarvore,especie=getespecie,link=getlink)
+        arvore = Arvore(name=getarvore,especie=getespecie,)
         db.session.add(arvore)
         db.session.commit()
         flash(f'A Árvore {getarvore} foi cadastrada com sucesso', 'success')

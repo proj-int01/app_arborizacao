@@ -23,7 +23,7 @@ class Arvore (db.Model):
     id=db.Column(db.Integer,primary_key=True)
     name=db.Column(db.String(30),nullable=False,unique=True)
     especie=db.Column(db.String(100),nullable=False,unique=True)
-    link=db.Column(db.String(400),nullable=False,unique=True)
+   
 
 class Familia(db.Model):
     id=db.Column(db.Integer,primary_key=True)

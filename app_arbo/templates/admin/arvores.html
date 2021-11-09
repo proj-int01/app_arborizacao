@@ -46,9 +46,6 @@
 <div class="container mt-4">
     <table class="table table-sm table-striped">
         <thead>                      
-            <th>Editar</th>
-            <th>Deletar</th>
-            <th></th>
             <th>Id</th>
             <th>Nome</th>
             <th></th> 
@@ -56,9 +53,9 @@
             <th>Espécie</th>
             <th></th> 
             <th></th> 
-            <th></th> 
-            <th></th>
-            <th>Link</th>
+            <th>Editar</th>
+            <th>Deletar</th>
+            
         </thead>
 
         <tbody>
@@ -68,12 +65,7 @@
             <tr>
                 
                  
-                <td><a href="{{url_for('updatearvore', id=arvore.id)}}" class="btn btn-sm btn-outline-warning">Editar</a></td>
-                  <td>
-                  <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal-{{arvore.id}}">
-                    Excluir
-                  </button>
-                  <td></td>
+                
                   <td>{{loop.index}}</td>
                 <td>{{arvore.name}}</td>
                 <td></td>
@@ -81,9 +73,14 @@
                 <td>{{arvore.especie}}</td>
                 <td></td>
                 <td></td>
-                <td></td>
-                <td></td>
-                <td>{{arvore.link}}</td> 
+                <td><a href="{{url_for('updatearvore', id=arvore.id)}}" class="btn btn-sm btn-outline-warning">Editar</a></td>
+                  <td>
+                  <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal-{{arvore.id}}">
+                    Excluir
+                  </button>
+                  <td></td> 
+               
+                
 
                   </td>
               </tr>
