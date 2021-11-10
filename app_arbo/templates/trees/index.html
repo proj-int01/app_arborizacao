@@ -14,7 +14,6 @@
         color: #0a630a;
         line-height: 5px;
         
-        
     }
     a:link, a:visited, a:active a:hover
      {
@@ -140,16 +139,13 @@
 
     </div>
 </div>
-    <div class="col-md-10">
+    <div class="col-md-7">
       <p></p>
       
-        <p><td><h4 style="text-align: center;">Conheça a diversidade<br></h4></td>
-        <td><h4 style="text-align: center;"> arbórea das praças </p></4>
-          <td><h4>de Monte alto</h4></td>
-          </p><br></td>
-        
+        <td><h4 style="text-align: center ; font-size: 18px ;">Conheça a diversidade arbórea<br></h4></td>
+        <td><h4 style="text-align: center ; font-size: 18px ;"><br></h4></td>
         <th></th>
-        
+        <td><h4 style="text-align: center ; font-size: 18px ;">das praças de Monte alto</h4></td>
         <div class="imb">
         <td></td>
       </div>
@@ -163,17 +159,17 @@
         </p>
         <p style="text-align: justify;">A arborização das praças da cidade de Monte Alto – SP constitui uma paisagem diversificada, tendo várias espécies arbóreas compondo sua estrutura, sendo importante para a purificação do ar, e mantendo a temperatura do ambiente agradável, levando vários cidadãos a visitá-las por ter estas características. </p>
 <div class="container">
-  
-    <div class="col-md-10">
+  <div class="row">
+        
+      <div class="col-md-12">
                     
-          {% for praca in pracas %}
-
-                      <h4 style="text-align: center;"><a href="{{url_for('get_praca', id=praca.id)}}"><h4>{{praca.name}}</p></h4>
-                    </a>  
-                   <p>{{praca.end}}<p>                                 
+                {% for praca in pracas %}
+            <div class="card">                                            
+                    <div class="card-tile">
+                    <a href="{{url_for('get_praca', id=praca.id)}}"><h4 style="text-align: center ; font-size: 20px ;">{{praca.name}}</h4></a>
+                <p class="text-center">{{praca.end}}</p>                                 
                     </div>
                 </div>
-              </div>
                     {% endfor %}
             </div>
         </div>
