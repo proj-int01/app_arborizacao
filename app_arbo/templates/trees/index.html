@@ -13,6 +13,7 @@
     h4 {
         color: #0a630a;
         line-height: 5px;
+         ;
         
     }
     a:link, a:visited, a:active a:hover
@@ -151,24 +152,25 @@
       </div>
       <th></th>
       <td></td>
-      
-      <p></p> 
+       <p></p> 
         
         <p>
 
         </p>
         <p style="text-align: justify;">A arborização das praças da cidade de Monte Alto – SP constitui uma paisagem diversificada, tendo várias espécies arbóreas compondo sua estrutura, sendo importante para a purificação do ar, e mantendo a temperatura do ambiente agradável, levando vários cidadãos a visitá-las por ter estas características. </p>
 <div class="container">
-  <div class="row">
+  <div class="row align-items-center">
         
       <div class="col-md-12">
                     
                 {% for praca in pracas %}
-            <div class="card">                                            
-                    <div class="card-tile">
-                    <a href="{{url_for('get_praca', id=praca.id)}}"><h4 style="text-align: center ; font-size: 18px ;">{{praca.name}}</h4></a>
-                <p class="text-center">{{praca.end}}</p>                                 
-                    </div>
+            <div >                                            
+              <div >
+                
+          <a href="{{url_for('get_praca', id=praca.id)}}"><h4  style="text-align: center ; font-size: 18px ;"  >{{praca.name}}</h4></a>
+        <p class="text-center">{{praca.end}}<p> 
+                                                
+              </div>
                 </div>
                     {% endfor %}
             </div>
