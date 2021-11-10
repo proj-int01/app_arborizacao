@@ -16,6 +16,3 @@ from app_arbo.admin import rotas
 from app_arbo.trees import rotas
 
 
-
-if __name__ == "__main__":
-    app.run(threaded=True, port=5000)
