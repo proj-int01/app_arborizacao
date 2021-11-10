@@ -2,23 +2,25 @@
 
 {% block content %}
 <style>
-  .imb 
-  {
-  
-        
-        justify-content: right;
-        align-items: right;
-    }
 
-    h4 {
-        color: #0a630a;
-        line-height: 5px;
-        
+
+.imb 
+  { 
+    justify-content: right;
+    align-items: right;
+      
+ 
     }
-    a:link, a:visited, a:active a:hover
-     {
-	text-decoration: none;
-	    }
+  
+  
+  h5 {
+      color: #0a630a
+  }
+  a:link, a:visited, a:active a:hover{
+text-decoration: none;
+}
+
+
 
 </style>
 <div class="container">
@@ -139,13 +141,16 @@
 
     </div>
 </div>
-    <div class="col-md-7">
+    <div class="col-md-10">
       <p></p>
       
-        <td><h4 style="text-align: center;">Conheça a diversidade arbórea<br></h4></td>
-        <td><h4 style="text-align: center;"><br></h4></td>
+        <p><td><h5>Conheça a diversidade<br></h5></td>
+        <td><h5> arbórea das praças </p></h5>
+          <td><h5>de Monte alto</h5></td>
+          </p><br></td>
+        
         <th></th>
-        <td><h4 style="text-align: center;">das praças de Monte alto</h4></td>
+        
         <div class="imb">
         <td></td>
       </div>
@@ -159,17 +164,17 @@
         </p>
         <p style="text-align: justify;">A arborização das praças da cidade de Monte Alto – SP constitui uma paisagem diversificada, tendo várias espécies arbóreas compondo sua estrutura, sendo importante para a purificação do ar, e mantendo a temperatura do ambiente agradável, levando vários cidadãos a visitá-las por ter estas características. </p>
 <div class="container">
-  <div class="row">
-        
-      <div class="col-md-12">
+  
+    <div class="col-md-10">
                     
-                {% for praca in pracas %}
-            <div class="card">                                            
-                    <div class="card-tile">
-                    <a href="{{url_for('get_praca', id=praca.id)}}"><h4 class="text-center">{{praca.name}}</h4></a>
-                <p class="text-center">{{praca.end}}</p>                                 
+          {% for praca in pracas %}
+
+                      <p><a href="{{url_for('get_praca', id=praca.id)}}"><p>{{praca.name}}</p>
+                    </a>  
+                   <p>{{praca.end}}<p>                                 
                     </div>
                 </div>
+              </div>
                     {% endfor %}
             </div>
         </div>
