@@ -2,25 +2,24 @@
 
 {% block content %}
 <style>
-
-
-.imb 
-  { 
-    justify-content: right;
-    align-items: right;
-      
- 
+  .imb 
+  {
+  
+        
+        justify-content: right;
+        align-items: right;
     }
-  
-  
-  h5 {
-      color: #0a630a
-  }
-  a:link, a:visited, a:active a:hover{
-text-decoration: none;
-}
 
-
+    h4 {
+        color: #0a630a;
+        line-height: 5px;
+        
+        
+    }
+    a:link, a:visited, a:active a:hover
+     {
+	text-decoration: none;
+	    }
 
 </style>
 <div class="container">
@@ -144,9 +143,9 @@ text-decoration: none;
     <div class="col-md-10">
       <p></p>
       
-        <p><td><h5>Conheça a diversidade<br></h5></td>
-        <td><h5> arbórea das praças </p></h5>
-          <td><h5>de Monte alto</h5></td>
+        <p><td><h4 style="text-align: center;">Conheça a diversidade<br></h4></td>
+        <td><h4 style="text-align: center;"> arbórea das praças </p></4>
+          <td><h4>de Monte alto</h4></td>
           </p><br></td>
         
         <th></th>
@@ -169,7 +168,7 @@ text-decoration: none;
                     
           {% for praca in pracas %}
 
-                      <p><a href="{{url_for('get_praca', id=praca.id)}}"><p>{{praca.name}}</p>
+                      <h4 style="text-align: center;"><a href="{{url_for('get_praca', id=praca.id)}}"><h4>{{praca.name}}</p></h4>
                     </a>  
                    <p>{{praca.end}}<p>                                 
                     </div>
