@@ -7,8 +7,6 @@ from .forms import RegistrationForm, LoginFormulario
 import os
 
 
-
-
 @app.route('/admin')
 def admin():
     if 'email' not in session:
@@ -40,11 +38,6 @@ def familias():
         return redirect(url_for('login'))
     familias = Familia.query.order_by(Familia.id.desc( )).all()
     return render_template('admin/familia.html', title='Página Famílias', familias=familias)
-
-
-
-
-
 
 @app.route('/registrar', methods=['GET', 'POST'])
 def registrar():

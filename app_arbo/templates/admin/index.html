@@ -58,7 +58,7 @@
             <th>Origem</th>
             <th></th>
             <th>Editar</th>
-            <th>Deletar</th>
+            <th>Excluir</th>
         </thead>
 
         <tbody>
@@ -77,7 +77,7 @@
                 <td><a href="{{url_for('updateaddarvore', id=arvore.id)}}" class="btn btn-sm btn-outline-warning">Editar</a></td>
                 <td>
                   <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal-{{arvore.id}}">
-                    Deletar
+                    Excluir
                   </button>
                   </td>
               </tr>
@@ -91,12 +91,12 @@
           </button>
         </div>
         <div class="modal-body">
-          <span class="text-danger">Deseja realmente deletar a  <strong>Relação da  {{arvore.arvore.name}}</strong> </span>
+          <span class="text-danger">Deseja realmente excluir dessa Praça a árvore <strong>  {{arvore.arvore.name}}</strong> </span>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
           <form action="{{url_for('deletarrelacao', id=arvore.id)}}" method="POST">
-          <button type="submit" class="btn btn-danger">Deletar</button>
+          <button type="submit" class="btn btn-danger">Excluir</button>
           </form>  
         </div>
       </div>

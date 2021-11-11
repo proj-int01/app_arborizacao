@@ -95,12 +95,12 @@
           </button>
         </div>
         <div class="modal-body">
-          <span class="text-danger">Deseja realmente deletar a <strong>Arvore {{arvore.name}}</strong> </span>
+          <span class="text-danger">Deseja realmente excluir a <strong>Arvore {{arvore.name}}</strong> </span>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
           <form action="{{url_for('deletararvore', id=arvore.id)}}" method="POST">
-          <button type="submit" class="btn btn-danger">Deletar</button>
+          <button type="submit" class="btn btn-danger">Excluir</button>
           </form>  
         </div>
       </div>

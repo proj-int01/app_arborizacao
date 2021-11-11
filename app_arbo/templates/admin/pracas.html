@@ -52,7 +52,7 @@
             <th>Endereço</th>
             <th></th>
             <th>Editar</th>
-            <th>Deletar</th>
+            <th>Excluir</th>
         </thead>
 
         <tbody>
@@ -67,7 +67,7 @@
                 <td>
                
                 <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal-{{praca.id}}">
-                  Deletar
+                  Excluir
                 </button>
                 </td>
             </tr>
@@ -81,12 +81,12 @@
         </button>
       </div>
       <div class="modal-body">
-        <span class="text-danger">Deseja realmente deletar a  <strong>Praça {{praca.name}}</strong> </span>
+        <span class="text-danger">Deseja realmente excluir a  <strong>Praça {{praca.name}}</strong> </span>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
         <form action="{{url_for('deletarpraca', id=praca.id)}}" method="POST">
-        <button type="submit" class="btn btn-danger">Deletar</button>
+        <button type="submit" class="btn btn-danger">excluir</button>
         </form>  
       </div>
     </div>

@@ -4,14 +4,10 @@ from .forms import Addpraca, Addtree
 from app_arbo import db, app
 from .models import Familia, Praca, Addarvore, Arvore
 
-
-
-
 @app.route('/')
 def home():
     pracas = Praca.query.all()
     return render_template('/trees/index.html', title='Praças de Monte Alto - SP', pracas=pracas)
-
 
 @app.route('/sobre')
 def sobre():
@@ -27,18 +23,10 @@ def search():
         search_value = form['search_string']
         search = '%{0}%'.format(search_value)
         arvores = Addarvore.query.join(Arvore, Praca ).add_columns(Arvore.id, Arvore.name, Arvore.especie, Praca.id, Praca.name.label('praca'), Addarvore.origem, Addarvore.qtd).filter(Arvore.name.like(search)).all()
-
-       
-
-
-
-
+     
         return render_template('pesquisar.html', arvores=arvores, pracas=pracas, title='Resultado da pesquisa')
     else:
         return redirect('/')
-
-
-
 
 @app.route('/praca/<int:id>')
 def get_praca(id):
@@ -48,14 +36,6 @@ def get_praca(id):
     get_praca = Addarvore.query.filter_by(praca_id=id)
     
     return render_template('/trees/praca.html', pracas=pracas, get_praca=get_praca, get_npraca=get_npraca, get_image=get_image, title='Praças de Monte Alto - SP')
-
-
-
-
-
-
-
-
 
 @app.route('/addfamilia', methods=['GET','POST'])
 def addfamilia():
@@ -86,8 +66,6 @@ def updatefamilia(id):
         return redirect(url_for('familias'))
     return render_template('/trees/updatefamilia.html', title="Atualizar Família", updatefamilia=updatefamilia)
 
-
-
 @app.route('/updatearvore/<int:id>', methods=['GET', 'POST'])
 def updatearvore(id):
     if 'email' not in session:
@@ -104,9 +82,6 @@ def updatearvore(id):
         db.session.commit()
         return redirect(url_for('arvores'))
     return render_template('/trees/updatearvore.html', title='Atualizar Árvore', updatearvore=updatearvore)
-
-
-
 
 @app.route('/addarvore', methods=['GET', 'POST'])
 def addarvore():
@@ -131,9 +106,6 @@ def addarvore():
         return redirect(url_for('admin'))
        
     return render_template('/trees/addarvore.html', title="Cadastrar Árvores", form=form, arvores=arvores, familias=familias, pracas=pracas)
-
-
-
 
 @app.route('/updateaddarvore/<int:id>', methods=['GET', 'POST'])
 def updateaddarvore(id):
@@ -163,27 +135,8 @@ def updateaddarvore(id):
 
     form.qtd.data = add_arvore.qtd
     form.origem.data = add_arvore.origem
-    
-  
-       
-        
-       
+
     return render_template('/trees/updateaddarvore.html', title="Cadastrar Árvores", form=form, arvores=arvores, familias=familias, pracas=pracas, add_arvore=add_arvore)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 @app.route('/addpraca', methods=['GET', 'POST'])
 def addpraca():
@@ -204,8 +157,7 @@ def addpraca():
         flash(f'A Praça {getpraca} foi cadastrada com sucesso', 'success')
         return redirect(url_for('pracas'))
     return render_template('/trees/addpraca.html', title='Cadastrar Praças')
-    
-
+  
 @app.route('/updatepraca/<int:id>', methods=['GET', 'POST'])
 def updatepraca(id):
     if 'email' not in session:
@@ -231,14 +183,6 @@ def updatepraca(id):
         return redirect(url_for('pracas'))
     return render_template('/trees/updatepraca.html', title='Atualizar praça',updatepraca=updatepraca)
 
-
-
-
-
-
-
-
-
 @app.route('/cadarvore', methods=['GET', 'POST'])
 def cadarvore():
     if 'email' not in session:
@@ -255,8 +199,6 @@ def cadarvore():
         return redirect(url_for('arvores'))
     return render_template('/trees/cadarvore.html', title='Cadastrar Árvores', arvore='arvore')
 
-
-
 @app.route('/deletarfamilia/<int:id>', methods=['GET','POST'])
 def deletarfamilia(id):
     if 'email' not in session:
@@ -271,9 +213,8 @@ def deletarfamilia(id):
         return redirect(url_for('familias'))
     flash (f'A família {familia.name} naõ moi excluída com sucesso', 'success')
     return redirect(url_for('familias'))
-    
    
-    
+   
 @app.route('/deletarpraca/<int:id>', methods=['GET','POST'])
 def deletarpraca(id):
     praca = Praca.query.get_or_404(id)
@@ -284,8 +225,8 @@ def deletarpraca(id):
         return redirect(url_for('pracas'))
     flash (f'A Praça {praca.name} não foi excluída com sucesso', 'success')
     return redirect(url_for('pracas'))
+  
     
-      
 @app.route('/deletararvore/<int:id>', methods=['GET','POST'])
 def deletararvore(id):
     arvore = Arvore.query.get_or_404(id)
@@ -296,7 +237,6 @@ def deletararvore(id):
         return redirect(url_for('arvores'))
     flash (f'A árvore {arvore.name} não foi excluída com sucesso', 'success')
     return redirect(url_for('arvores'))
-
 
          
 @app.route('/deletarrelacao/<int:id>', methods=['GET','POST'])
