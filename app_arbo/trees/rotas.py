@@ -13,6 +13,11 @@ def home():
     return render_template('/trees/index.html', title='Praças de Monte Alto - SP', pracas=pracas)
 
 
+@app.route('/sobre')
+def sobre():
+    pracas = Praca.query.all()
+    return render_template('sobre.html', pracas=pracas)
+
 @app.route('/search',methods=['GET','POST'])
 def search():
      
